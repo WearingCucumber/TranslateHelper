@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>创建图标</title>
+</head>
+<body>
+    <script>
+        const icons = {
+            icon16: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAABP0lEQVR42mNgGBTg/v37/69fv/7/7Nmz/48ePfp/7969/7du3fp/48aN/1euXPl/8eJF8jW/efPm/4ULF/6fOXPm/8mTJ/8fP378/+HDh//v27fv/+7du//v2LHj/7Zt21ADDx48+L9lyxZUzZs3b/6/fv36/2vXrv2/cuXK/8uXL/+/dOnS/4sXL/6/cOHC//Pnz/8/d+4cqubVq1f/X7ly5f/ly5f/X7p06f+FCxf+nz9//v/Zs2f/nzlz5v+pU6f+nzhx4v/x48dRNS9fvvz/0qVL/y9evPj//Pnz/8+dO/f/zJkz/0+fPv3/1KlT/0+cOPH/2LFj/48ePYoa+efOnft/9uzZ/6dPn/5/6tSp/ydPnvx//Pjx/0eOHPl/+PDh/wcPHvx/4MCB//v37x/8mQ3ZxoMHD/7ft2/f/717944GAJqY5S3ZO3BFAAAAAElFTkSuQmCC",
+            
+            icon32: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABrElEQVR42u2XTUsCURSGr0P/oHVLN0GLfoGbfoYgQosWQdCiRUFBi6BFQUGLgoIWBQUtCgpaFBS0KChoUVDQoqCgRUFBi4KCFgUFLQoKWhQUtCgoaBFBvOm9MIhpjjp+FNwLL8PMvec85z3nzFwFQVCkUin09PTwkJBKpaDT6WA0GmEymWC1WmGz2WC32+FwOOB0OuFyueB2u+HxeOD1euHz+eD3+xEIBBAMBhEKhRAOhxGJRBCNRhGLxRCPx5FIJJBMJpFKpZDJZJDNZpHL5ZDP51EoFFAsFrksLRQK6Ha7vJ1Op9FsNtFqtdBut9HpdNDtdtHr9dDv9zEYDDAcDjEajTAejzGZTDCdTjGbzTCfz7FYLLBcLrFarbDZbLDdbne73R6ORqPxZDKZzufzxXK5XK1UKrV6vd5oNBqtZrPZ7nQ6XbmSTqfT7/f7w8FgMB6NRpPxeDydzWbzxWKxVK1Wn+r1+kuj0XhtNpvvcrXb7Y9er/c5HA6/xuPxz2w2+1UqlX4bjcZfo9H4ZzKZ/lkslj+73f5vt9v/nU7nv8vl+ne73SJd0/0HKirwDqf+1FAAAAAASUVORK5CYII=",
+            
+            icon48: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACEElEQVR42u2ZP0vDQBjG8w36EcSPIA4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4O4uAgIjjEC97BSUhp0zbpXZvmgQeSS/Le5/c+7/vyR1GUQiwWQ1VVEYlEEI1GEYvFEI/HkUgkkEwmkUqlkE6nkclkkM1mkc/nUSwWUSqVUC6XUalUUK1WUavVUK/X0Wg00Gw20Wq10G630el00O120ev10O/3MRgMMBwOMRqNMB6PMZlMMJ1OMZvNMJ/PsVgssF6vsVwusVqtsFwusVgsMJ/PMZvNMJ1OMZlMMB6PMRqNMBwOMRgM0O/30ev10O120el00G630Wq10Gw20Wg0UK/XUavVUK1WUalUUC6XUSqVUCwWkc/nkc1mkclkkE6nkUqlkEwmkUgkEI/HEYvFEI1GEYlEoKoqYrGYoigKgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIwv/mF1rqNYCXj3yGAAAAAElFTkSuQmCC",
+            
+            icon128: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAACXBIWXMAAAsTAAALEwEAmpwYAAADd0lEQVR42u3dP2sTcRzH8d//QAdxcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcBARHETk4pt8b3JJmuaa9Npc7vcFDyTX6/18Pp/ned0lFwRBLpfLIZ/PI5/PIxqNIhKJIBwOIxQKIRgMIhAIwO/3w+fzwev1wuPxwO12w+VyweFwwG63w2azwWq1wmKxwGw2w2QywWg0Qq/XQ6fTQavVQqPRQK1WQ7VaRaVSQblcRqlUQrFYRKFQQD6fRy6XQzabRSaTQTqdRiqVQjKZRCKRQDweRywWQzQaRSQSQTgcRigUQjAYRCAQgN/vh8/ng9frhcfjgcvlgsPhgN1uh81mg9VqhcVigdlshtFohF6vh06ng1arhUajgVqthmq1ikqlgnK5jFKphGKxiEKhgHw+j1wuh2w2i0wmg3Q6jVQqhWQyiUQigXg8jlgshng8jmQyiVQqhXQ6jUwmg2w2i1wuh3w+j0KhgGKxiFKphHK5jEqlgmq1ilqthnq9jkajgWaziVarhXa7jU6ng263i16vh36/j8FggOFwiNFohPF4jMlkgul0itlshvl8jsVigdVqhdVqheVyicVigfl8jtlshul0islkgvF4jNFohOFwiMFggH6/j16vh263i06ng3a7jVarhWaziUajgXq9jlqthmq1ikqlgnK5jFKphGKxiEKhgHw+j1wuh2w2i0wmg3Q6jVQqhWQyiUQigXg8jlgshkgkgnA4jFAohGAwCL/fD5/PB6/XC7fbDYfDAbvdDpvNBqvVCovFArPZDKPRCL1eD51OB41GA7VaDZVKBZV"
+        };
+
+        function downloadIcon(base64Data, filename) {
+            const link = document.createElement('a');
+            link.href = base64Data;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // 下载所有图标
+        for (const [name, data] of Object.entries(icons)) {
+            downloadIcon(data, `${name}.png`);
+        }
+    </script>
+    <h1>图标已生成，请检查下载文件夹</h1>
+</body>
+</html> 

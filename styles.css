@@ -1,0 +1,11 @@
+.translation-result {
+    margin-top: 0.5em !important;
+    margin-bottom: 1em !important;
+    padding-left: 10px !important;
+    border-left: 3px solid #4CAF50 !important;
+    opacity: 0.85 !important;
+}
+
+[data-translated] {
+    position: relative;
+} 

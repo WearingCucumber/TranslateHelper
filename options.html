@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>翻译助手设置</title>
+    <style>
+        body {
+            padding: 20px;
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            margin-top: 0;
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+
+        .language-settings {
+            margin: 20px 0;
+        }
+
+        .language-pair {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        select {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background: white;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 200px;
+        }
+
+        select:focus {
+            border-color: #0071e3;
+            box-shadow: 0 0 0 2px rgba(0,113,227,0.2);
+        }
+
+        .shortcut-container {
+            margin: 20px 0;
+        }
+
+        .shortcut-input {
+            padding: 8px;
+            margin: 5px 0;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        .info {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background: #0071e3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #0077ed;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .message.success {
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+        }
+
+        .message.error {
+            background-color: #f2dede;
+            color: #a94442;
+            border: 1px solid #ebccd1;
+        }
+
+        .message.info {
+            background-color: #d9edf7;
+            color: #31708f;
+            border: 1px solid #bce8f1;
+        }
+
+        .note {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 8px;
+            color: #856404;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1d1d1f;
+                color: #f5f5f7;
+            }
+
+            .section {
+                background: #2c2c2e;
+            }
+
+            h2 {
+                color: #f5f5f7;
+            }
+
+            select {
+                background: #2c2c2e;
+                color: #f5f5f7;
+                border-color: #444;
+            }
+
+            .shortcut-input {
+                background: #2c2c2e;
+                color: #f5f5f7;
+                border-color: #444;
+            }
+
+            .note {
+                background-color: #3a3a3c;
+                border-color: #4a4a4c;
+                color: #f5f5f7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h2>网页翻译语言设置</h2>
+        <div class="language-settings">
+            <div class="language-pair">
+                <span>将网页内容翻译为：</span>
+                <select id="defaultTargetLang">
+                    <option value="zh-CN">中文</option>
+                    <option value="en">英语</option>
+                    <option value="ja">日语</option>
+                    <option value="ko">韩语</option>
+                    <option value="fr">法语</option>
+                    <option value="de">德语</option>
+                    <option value="es">西班牙语</option>
+                    <option value="ru">俄语</option>
+                </select>
+            </div>
+            <p class="info">此设置仅影响网页内容的翻译结果语言，不影响翻译窗口的设置。</p>
+            <button id="saveLangBtn">保存语言设置</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>快捷键设置</h2>
+        <div class="shortcut-container">
+            <label>翻译开关快捷键:</label><br>
+            <input type="text" id="shortcutInput" class="shortcut-input" placeholder="点击此处按下快捷键组合" readonly>
+            <p class="info">提示：可以使用 Ctrl、Shift、Alt 等组合键</p>
+            <button id="saveBtn">保存快捷键</button>
+        </div>
+        <div class="note">
+            注意：由于浏览器限制，快捷键需要在扩展管理页面中手动设置。保存后会自动跳转到快捷键设置页面。
+        </div>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html> 
